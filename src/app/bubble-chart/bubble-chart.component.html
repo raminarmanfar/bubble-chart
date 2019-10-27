@@ -1,0 +1,45 @@
+<svg
+        [attr.width]="gOptions.spaceBetweenCates * (catesLen + 1) + gOptions.spaceforRowTitles"
+        [attr.height]="graphHeight + gOptions.spaceforRowTitles + gOptions.additionalHeightSpaceOnTop"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+    <rect [attr.x]="1 + gOptions.spaceforRowTitles"
+            [attr.y]="1 + gOptions.additionalHeightSpaceOnTop"
+            [attr.width]="gOptions.spaceBetweenCates * (catesLen + 1) - 2"
+            [attr.height]="graphHeight" class="graphBorder"/>
+
+
+    <g *ngFor="let cate of gOptions.categories; let i = index;">
+            <line [attr.x1]="1 + cateLineX(i)"
+                    [attr.y1]="1 + gOptions.additionalHeightSpaceOnTop"
+                    [attr.x2]="1 + cateLineX(i)"
+                    [attr.y2]="1 + gOptions.additionalHeightSpaceOnTop + graphHeight"
+                    class="colGridLines"/>
+            <text [attr.x]="1 + gOptions.additionalHeightSpaceOnTop + graphHeight + gOptions.spaceBetweenCateAndGrid + getRotationRate(i)"
+                    [attr.y]="-(1 + cateLineX(i) - 4)"
+                    class="cate-font-small"
+                    [attr.fill]="gOptions.cateTextColor"
+                    transform="rotate(90)">
+                {{cate}}
+            </text>
+    </g>
+    
+    <g *ngFor="let row of gOptions.rowsData; let i = index;">
+        <line [attr.x1]="1 + gOptions.spaceforRowTitles"
+                [attr.y1]="rowLineY(i)"
+                [attr.x2]="gOptions.spaceBetweenCates * (catesLen + 1) + gOptions.spaceforRowTitles - 1"
+                [attr.y2]="rowLineY(i)" class="colGridLines"/>
+        <text [attr.x]="1 + gOptions.spaceforRowTitles - gOptions.spaceBetweenTitlesAndGrid"
+                [attr.y]="1 + rowLineY(i) + 5" class="rows-font-small"
+                [attr.fill]="gOptions.rowTextColor">
+            {{row.title}}
+        </text>
+        <g *ngFor="let cate of row.cateWeights; let j = index;">
+            <circle [attr.cx]="1 + cateLineX(j)"
+                    [attr.cy]="rowLineY(i)"
+                    [attr.r]="cate * gOptions.bubbleSizeRate"
+                    class="bubble"/>
+        </g>    
+    </g>
+</svg>

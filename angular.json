@@ -124,6 +124,41 @@
           }
         }
       }
+    },
+    "bubble-chart": {
+      "projectType": "library",
+      "root": "projects/bubble-chart",
+      "sourceRoot": "projects/bubble-chart/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/bubble-chart/tsconfig.lib.json",
+            "project": "projects/bubble-chart/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/bubble-chart/src/test.ts",
+            "tsConfig": "projects/bubble-chart/tsconfig.spec.json",
+            "karmaConfig": "projects/bubble-chart/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/bubble-chart/tsconfig.lib.json",
+              "projects/bubble-chart/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "svg-tutorial"
 }

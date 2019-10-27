@@ -17,7 +17,18 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "bubble-chart": [
+        "dist/bubble-chart"
+      ],
+      "bubble-chart/*": [
+        "dist/bubble-chart/*"
+      ],
+      "@angular/*": [
+        "./node_modules/@angular/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

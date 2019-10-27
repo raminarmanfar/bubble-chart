@@ -1,0 +1,9 @@
+{
+  "name": "bubble-chart",
+  "version": "0.0.1",
+  "description": "Drawing bubble chart to present information and its categories weights.",
+  "peerDependencies": {
+    "@angular/common": "^8.2.11",
+    "@angular/core": "^8.2.11"
+  }
+}
