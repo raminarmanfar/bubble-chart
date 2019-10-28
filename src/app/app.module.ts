@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app-root/app.component';
 import { BubbleChartComponent } from './bubble-chart/bubble-chart.component';
-import { BubbleChartModule } from 'bubble-chart';
 
 @NgModule({
   declarations: [
@@ -13,8 +12,7 @@ import { BubbleChartModule } from 'bubble-chart';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    BubbleChartModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

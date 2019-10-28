@@ -24,7 +24,7 @@
                 {{cate}}
             </text>
     </g>
-    
+
     <g *ngFor="let row of gOptions.rowsData; let i = index;">
         <line [attr.x1]="1 + gOptions.spaceforRowTitles"
                 [attr.y1]="rowLineY(i)"
@@ -35,11 +35,13 @@
                 [attr.fill]="gOptions.rowTextColor">
             {{row.title}}
         </text>
+        <image x="1" [attr.y]="1 + rowLineY(i) - 5" xlink:href="../../assets/users-solid.svg" height="25" width="25"/>
+
         <g *ngFor="let cate of row.cateWeights; let j = index;">
             <circle [attr.cx]="1 + cateLineX(j)"
                     [attr.cy]="rowLineY(i)"
                     [attr.r]="cate * gOptions.bubbleSizeRate"
                     class="bubble"/>
-        </g>    
+        </g>
     </g>
 </svg>
